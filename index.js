@@ -41,9 +41,13 @@ app.get('/games/:id?',(req,res)=>{
 
 })
 
-app.post('/Games',(req,res)=>{
-    var {name,author,ano,pricing} = req.body.name
-  
+app.post('/games',(req,res)=>{
+    var name = req.body.name
+    var author = req.body.author
+    var ano = req.body.ano
+    var pricing = req.body.pricing
+   
+     
      Games.create({
         name:name,
         author:author,
