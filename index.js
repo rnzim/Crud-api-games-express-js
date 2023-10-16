@@ -71,3 +71,18 @@ app.delete('/games/:id',(req,res)=>{
     })
 })
 
+app.put('/games/:id',(req,res)=>{
+    var {name,ano,author,pricing} = req.body
+
+    
+    var id = req.params.id
+    Games.update({name:name,ano:ano,author:author,pricing:pricing},
+        {where:{id:id}}).then(()=>{
+            res.sendStatus(200)
+            console.log('sucess update')
+        }).catch(err=>{
+            res.send(500)
+            console.log(err)
+        })
+})
+
